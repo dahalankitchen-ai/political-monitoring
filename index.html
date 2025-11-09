@@ -3,118 +3,109 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>نعيم دحلان ⚡ فريق المتابعة السياسية</title>
-    <meta name="description" content="فريق المتابعة السياسية بقيادة نعيم محمد دحلان — قراءة واقعية للمشهد السياسي الفلسطيني، بين الميدان والسياسة، وتحليلات معمّقة للتطورات الإقليمية." />
+    <title>⚡ فريق المتابعة السياسية — نعيم محمد دحلان</title>
+    <meta name="description" content="الموقع الرسمي لفريق المتابعة السياسية — بإشراف نعيم محمد دحلان. قراءة واقعية للمشهد الفلسطيني والإقليمي، بين الميدان والسياسة." />
+
+    <!-- خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
     <style>
         body {
             margin: 0;
             padding: 40px 16px;
-            font-family: "Cairo", system-ui, -apple-system, "Segoe UI", sans-serif;
-            background: #020617; /* slate-950 */
-            color: #e5e7eb;     /* slate-200 */
+            font-family: "Cairo", sans-serif;
+            background: #0b0f19; /* داكن مائل للأزرق */
+            color: #e5e7eb;
             text-align: center;
         }
 
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         h1 {
-            color: #facc15; /* amber-400 */
-            font-size: 2.1rem;
-            margin: 0 0 10px;
+            color: #facc15;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             font-size: 1.05rem;
             color: #cbd5f5;
-            margin: 0 0 28px;
+            margin-bottom: 30px;
         }
 
         hr {
             width: 70px;
             border: 0;
             border-top: 2px solid #facc15;
-            margin: 24px auto;
+            margin: 22px auto;
         }
 
-        .lead {
+        .lead, .tagline {
             font-size: 1rem;
-            line-height: 1.9;
-            color: #e5e7eb;
-            margin-bottom: 18px;
-        }
-
-        .tagline {
-            font-size: 0.98rem;
-            line-height: 1.9;
-            color: #e5e7eb;
-            margin-bottom: 32px;
-        }
-
-        .hint {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            line-height: 1.8;
+            margin-bottom: 22px;
             color: #e5e7eb;
         }
 
         .sections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-top: 12px;
-            margin-bottom: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
         }
 
         .section-card {
             display: block;
-            padding: 14px 12px;
-            border-radius: 18px;
-            border: 1px solid #1f2937;
-            background: rgba(15, 23, 42, 0.96);
-            text-decoration: none;
+            padding: 16px;
+            border-radius: 16px;
+            background: #111827;
             color: inherit;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
-            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+            text-decoration: none;
+            border: 1px solid #1e293b;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
         }
 
         .section-card span.icon {
             font-size: 1.4rem;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .section-card h2 {
-            font-size: 1rem;
-            margin: 0 0 4px;
+            font-size: 1.05rem;
+            margin: 0 0 6px;
             color: #facc15;
         }
 
         .section-card p {
-            margin: 0;
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             color: #cbd5f5;
-            line-height: 1.6;
+            margin: 0;
         }
 
         .section-card:hover {
             transform: translateY(-3px);
             border-color: #facc15;
-            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+            box-shadow: 0 8px 25px rgba(250, 204, 21, 0.15);
         }
 
         .update-note {
             font-size: 0.9rem;
             color: #9ca3af;
-            margin-bottom: 26px;
+            margin-top: 28px;
         }
 
         .footer {
             font-size: 0.9rem;
             color: #9ca3af;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .footer strong {
@@ -122,87 +113,57 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 26px 12px 32px;
-            }
-            h1 {
-                font-size: 1.7rem;
-            }
-            .subtitle {
-                font-size: 0.95rem;
-            }
+            body { padding: 28px 10px; }
+            h1 { font-size: 1.7rem; }
+            .subtitle { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>نعيم دحلان ⚡ فريق المتابعة السياسية</h1>
-        <p class="subtitle">
-            قراءة واقعية للمشهد السياسي الفلسطيني — بين الميدان والسياسة.
-        </p>
+        <h1>⚡ فريق المتابعة السياسية</h1>
+        <p class="subtitle">بإشراف نعيم محمد دحلان — قراءة واقعية للمشهد الفلسطيني بين الميدان والسياسة</p>
 
         <hr />
 
         <p class="lead">
-            نتابع تفاصيل المشهد لحظة بلحظة، ونقدّم قراءة هادئة مبنيّة على الوقائع لا الانفعال،
-            مع تركيز خاص على غزة، إسرائيل، والتطورات الإقليمية المتسارعة.
+            نتابع المشهد لحظة بلحظة، ونقدّم قراءة واقعية مبنية على الوقائع السياسية والميدانية،
+            بعيدًا عن التهويل أو التبسيط الإعلامي.
         </p>
 
-        <p class="tagline">
-            ✍️ نكتب الواقع كما هو، لا كما يُروى — لنعيد للوعي الفلسطيني
-            قدرته على الفهم والتحليل.
-        </p>
-
-        <p class="hint">📍 تصفّح أقسام المحتوى:</p>
+        <p class="tagline">✍️ نكتب الواقع كما هو، لا كما يُروى — لنُعيد للوعي الفلسطيني قدرته على الفهم والتحليل.</p>
 
         <div class="sections">
-            <!-- التحليلات -->
             <a class="section-card" href="analyses.html">
                 <span class="icon">📊</span>
                 <h2>التحليلات</h2>
-                <p>
-                    قراءات سياسية معمّقة للاتجاهات والقرارات، ومحاولات استشراف
-                    للمشهد المقبل.
-                </p>
+                <p>قراءات سياسية معمّقة وتقديرات مستقبلية مبنية على المعطيات الإسرائيلية والإقليمية.</p>
             </a>
 
-            <!-- التقارير الميدانية -->
             <a class="section-card" href="reports.html">
                 <span class="icon">📸</span>
                 <h2>التقارير الميدانية</h2>
-                <p>
-                    رصد للحركة على الأرض، وانعكاساتها على الملف الفلسطيني
-                    والإقليمي.
-                </p>
+                <p>متابعة مباشرة للوقائع على الأرض وتوثيق دقيق لحركة الميدان.</p>
             </a>
 
-            <!-- الملفات التحليلية الكبرى -->
             <a class="section-card" href="files.html">
-                <span class="icon">☘️</span>
+                <span class="icon">🧩</span>
                 <h2>الملفات التحليلية الكبرى</h2>
-                <p>
-                    ملفات شاملة تعالج القضايا المعقّدة في أكثر من محور وسيناريو.
-                </p>
+                <p>سلاسل تحليلية تجمع الأبعاد الميدانية والسياسية في ملفات محورية.</p>
             </a>
 
-            <!-- مكتبة الفريق -->
             <a class="section-card" href="library.html">
                 <span class="icon">📚</span>
                 <h2>مكتبة الفريق</h2>
-                <p>
-                    أرشيف التحليلات والتقارير والمواد المرجعية الصادرة عن فريق
-                    المتابعة السياسية.
-                </p>
+                <p>أرشيف متكامل للمواد التحليلية والتقارير والمراجع الرسمية للفريق.</p>
             </a>
         </div>
 
-        <p class="update-note">
-            🔁 يتم تحديث الموقع دوريًا مع كل تقرير أو ملف جديد يصدر عن فريق المتابعة السياسية.
-        </p>
+        <p class="update-note">🔁 يتم تحديث الموقع دوريًا مع كل تقرير أو تحليل جديد يصدر عن الفريق.</p>
 
         <p class="footer">
-            🌐 جميع الحقوق محفوظة لـ<strong>موقع فريق المتابعة السياسية – نعيم محمد دحلان</strong> © 2025
+            🌐 جميع الحقوق محفوظة © لموقع <strong>فريق المتابعة السياسية – نعيم محمد دحلان</strong> 2025
         </p>
     </div>
 </body>
-  </html>
+</html>
