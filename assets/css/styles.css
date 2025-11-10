@@ -1,0 +1,15 @@
+body {
+  font-family: "Tahoma", sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  color: #003366;
+}
+p {
+  line-height: 1.6;
+}
