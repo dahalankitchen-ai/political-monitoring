@@ -5,189 +5,464 @@
   <title>مكتبة فريق المتابعة السياسية</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050814;
-      color: #f5f5f5;
+      background:
+        radial-gradient(circle at top, #1f2937 0, #020617 48%, #000 100%);
+      color: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 16px 48px;
+
+    .outer-shell {
+      width: 100%;
+      max-width: 960px;
     }
+
+    .page-card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow:
+        0 24px 50px rgba(15,23,42,0.85),
+        0 0 0 1px rgba(15,23,42,0.8);
+      padding: 28px 18px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* لمسة إضاءة خفيفة من الخلف */
+    .page-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(250,204,21,0.08), transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+    }
+
     h1 {
       text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 0.3rem;
-      color: #ffd54f;
+      font-size: 1.9rem;
+      margin: 0 0 0.4rem;
+      color: #fde68a;
+      letter-spacing: 0.02em;
     }
+
+    .page-badge {
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-badge span {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      color: #e5e7eb;
+    }
+
     h2 {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 400;
-      color: #e0e0e0;
+      color: #e5e7eb;
       margin-top: 0;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1rem;
     }
+
     .subtitle {
       text-align: center;
-      color: #b0bec5;
-      margin-bottom: 1.8rem;
-      font-size: 0.95rem;
-      line-height: 1.7;
+      color: #cbd5f5;
+      margin: 0 auto 1.7rem;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 620px;
     }
+
     .nav-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
     }
+
     .nav-buttons a {
       text-decoration: none;
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 999px;
-      background: #111827;
+      background: rgba(15,23,42,0.9);
       color: #e5e7eb;
-      font-size: 0.9rem;
-      border: 1px solid #1f2937;
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.5);
+      font-size: 0.85rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.7);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-    }
-    .nav-buttons a:hover {
-      background: #1f2937;
-    }
-    .section-title {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: #e5e7eb;
+      transition: background 0.18s ease, transform 0.18s ease,
+                  box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
-    /* حاوية للكروت عشان المسافات تكون ثابتة */
+    .nav-buttons a:hover {
+      background: #111827;
+      transform: translateY(-1px);
+      border-color: #3b82f6;
+      box-shadow: 0 7px 20px rgba(15,23,42,0.9);
+    }
+
+    .section-title {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #facc15, #3b82f6);
+    }
+
     .cards-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 12px;
+      gap: 14px;
+      margin-bottom: 8px;
     }
 
     .card {
-      background: #0b1020;
+      background: radial-gradient(circle at top left, rgba(15,23,42,1), rgba(15,23,42,0.96));
       border-radius: 18px;
-      padding: 18px 16px;
-      border: 1px solid #1e293b;
+      padding: 14px 14px 14px;
+      border: 1px solid rgba(30,64,175,0.4);
+      box-shadow: 0 12px 32px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+                  border-color 0.2s ease, background 0.2s ease;
     }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset-inline-end: -40px;
+      inset-block-start: -40px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(248,250,252,0.07), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(15,23,42,0.95);
+      border-color: #3b82f6;
+      background: radial-gradient(circle at top left, rgba(15,23,42,1), rgba(17,24,39,1));
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
     .card-title {
-      font-size: 1rem;
-      margin-bottom: 6px;
+      font-size: 0.96rem;
+      margin: 0;
+      color: #f9fafb;
     }
+
+    .card-label {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(22,163,74,0.12);
+      color: #6ee7b7;
+      border: 1px solid rgba(16,185,129,0.5);
+      white-space: nowrap;
+    }
+
     .card-meta {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #9ca3af;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
+
     .card-tags {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #a5b4fc;
       margin-bottom: 8px;
     }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .card-links a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-decoration: none;
-      color: #93c5fd;
-      margin-inline-end: 12px;
+      color: #bfdbfe;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(59,130,246,0.6);
+      background: rgba(15,23,42,0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.18s ease, transform 0.18s ease,
+                  box-shadow 0.18s ease, border-color 0.18s ease;
     }
+
     .card-links a:hover {
-      text-decoration: underline;
+      background: #1d4ed8;
+      border-color: #93c5fd;
+      color: #eff6ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(37,99,235,0.55);
     }
+
+    /* شريط التنقل بين الأقسام الكبرى داخل الصفحة */
+    .sections-nav-title {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    .sections-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .sections-nav a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(148,163,184,0.35);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.18s ease, transform 0.18s ease,
+                  border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .sections-nav a:hover {
+      background: #020617;
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(15,23,42,0.9);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to left,
+        transparent,
+        rgba(148,163,184,0.6),
+        transparent);
+      margin: 20px 0 10px;
+    }
+
+    .section-block {
+      margin-top: 18px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.96rem;
+      color: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .section-heading span.icon {
+      font-size: 1.1rem;
+    }
+
+    .section-desc {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
     footer {
-      margin-top: 32px;
+      margin-top: 26px;
       text-align: center;
       font-size: 0.8rem;
       color: #9ca3af;
-      line-height: 1.7;
+      line-height: 1.8;
     }
+
     footer a {
       color: #93c5fd;
       text-decoration: none;
+      font-weight: 500;
     }
+
     footer a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .page-card {
+        padding: 22px 14px 26px;
+        border-radius: 20px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 12px 12px 12px;
+      }
+      .card-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- العنوان الرئيسي -->
-    <h1>📚 مكتبة فريق المتابعة السياسية</h1>
-    <h2>أرشيف المواد التحليلية والتقارير والملفات الكاملة</h2>
-    <p class="subtitle">
-      هذه الصفحة تجمع المواد الكاملة الصادرة عن فريق المتابعة السياسية —  
-      يمكن تحميل كل ملف بصيغة Word أو PDF مباشرة لاستخدامه في الأبحاث، الدراسات أو العمل الميداني.
-    </p>
+  <div class="outer-shell">
+    <div class="page-card">
+      <div class="page-inner">
+        <!-- العنوان الرئيسي -->
+        <h1>📚 مكتبة فريق المتابعة السياسية</h1>
+        <div class="page-badge">
+          <span>أرشيف الملفات الكاملة الصادرة عن فريق المتابعة السياسية</span>
+        </div>
+        <h2>مواد تحليلية جاهزة للتحميل والاستخدام البحثي والميداني</h2>
+        <p class="subtitle">
+          هنا تجد النسخ الكاملة من أهم تقارير وملفات فريق المتابعة السياسية،  
+          متاحة بصيغتي <strong>PDF</strong> و<strong>Word</strong> للاستخدام في الأبحاث، العروض،  
+          أو العمل التنظيمي والميداني المرتبط بملفات غزة والمنطقة.
+        </p>
 
-    <!-- الأزرار الرئيسية -->
-    <div class="nav-buttons">
-      <!-- روابط داخل نفس المشروع بدون / في البداية -->
-      <a href="index.html">🏠 الصفحة الرئيسية</a>
-      <a href="analyses.html">📊 التحليلات</a>
-      <a href="field-gaza.html">📸 التقارير الميدانية</a>
-      <a href="files.html">🍀 الملفات التحليلية الكبرى</a>
+        <!-- الأزرار الرئيسية -->
+        <div class="nav-buttons">
+          <a href="index.html">🏠 الصفحة الرئيسية</a>
+          <a href="analyses.html">📊 التحليلات</a>
+          <a href="field-gaza.html">📸 التقارير الميدانية</a>
+          <a href="files.html">🍀 الملفات التحليلية الكبرى</a>
+        </div>
+
+        <!-- أحدث الملفات الكاملة -->
+        <div class="section-title">أحدث الملفات الكاملة:</div>
+
+        <div class="cards-list">
+          <!-- ملف 1 -->
+          <div class="card">
+            <div class="card-header-row">
+              <h3 class="card-title">📄 قراءة واقعية – ما بعد تسليم الرفات (النسخة النهائية)</h3>
+              <span class="card-label">تحليل سياسي مكتمل</span>
+            </div>
+            <div class="card-meta">التصنيف: تحليل سياسي | التاريخ: 01/01/2025</div>
+            <div class="card-tags">
+              وسوم: قطاع غزة، ملف الجثث، ملف الأسرى، الجيش الإسرائيلي
+            </div>
+            <div class="card-links">
+              <a href="files/reading-after-bodies-final.pdf" target="_blank">
+                🔗 فتح / تحميل (PDF)
+              </a>
+              <a href="files/reading-after-bodies-final.docx" target="_blank">
+                📝 نسخة قابلة للتعديل (Word)
+              </a>
+            </div>
+          </div>
+
+          <!-- ملف 2 -->
+          <div class="card">
+            <div class="card-header-row">
+              <h3 class="card-title">📄 ملف الجثث – من الميدان إلى الطاولة السياسية</h3>
+              <span class="card-label" style="background: rgba(234,179,8,0.14); border-color: rgba(234,179,8,0.6); color:#facc15;">
+                ملف تحليلي كامل
+              </span>
+            </div>
+            <div class="card-meta">التصنيف: ملف تحليلي كبير | التاريخ: 15/01/2025</div>
+            <div class="card-tags">
+              وسوم: ملف الجثث، رفح، الخط الأصفر، الترتيبات الأمنية
+            </div>
+            <div class="card-links">
+              <a href="files/bodies-file-gaza-full.pdf" target="_blank">
+                🔗 فتح / تحميل (PDF)
+              </a>
+              <a href="files/bodies-file-gaza-full.docx" target="_blank">
+                📝 نسخة قابلة للتعديل (Word)
+              </a>
+            </div>
+          </div>
+
+          <!-- ملف 3 -->
+          <div class="card">
+            <div class="card-header-row">
+              <h3 class="card-title">📄 ما بعد الحرب في غزة – ملامح القوة الدولية وترتيبات الأمن</h3>
+              <span class="card-label" style="background: rgba(37,99,235,0.15); border-color: rgba(59,130,246,0.7); color:#bfdbfe;">
+                ملف ما بعد الحرب
+              </span>
+            </div>
+            <div class="card-meta">التصنيف: ملف ما بعد الحرب | التاريخ: 01/02/2025</div>
+            <div class="card-tags">
+              وسوم: ما بعد الحرب، القوة الدولية، الشرطة الفلسطينية، الإقليم
+            </div>
+            <div class="card-links">
+              <a href="files/post-war-gaza-international-force.pdf" target="_blank">
+                🔗 فتح / تحميل (PDF)
+              </a>
+              <a href="files/post-war-gaza-international-force.docx" target="_blank">
+                📝 نسخة قابلة للتعديل (Word)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ممكن لاحقًا نضيف الأقسام الكبرى هنا (🧩، ⚖️، 🕯️، 🌍) لو حبيت -->
+
+        <footer>
+          🔖 “هذا التحليل يُبنى على الوقائع الميدانية والسياسية الفعلية، لا على الرواية الإعلامية العبرية”<br />
+          🌐
+          <a href="https://dahalankitchen-ai.github.io/political-monitoring/">
+            جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية 2025
+          </a>
+        </footer>
+      </div>
     </div>
-
-    <!-- أحدث الملفات الكاملة -->
-    <div class="section-title">أحدث الملفات الكاملة:</div>
-
-    <div class="cards-list">
-      <!-- ملف 1 -->
-      <div class="card">
-        <div class="card-title">📄 قراءة واقعية – ما بعد تسليم الرفات (النسخة النهائية)</div>
-        <div class="card-meta">التصنيف: تحليل سياسي | التاريخ: 01/01/2025</div>
-        <div class="card-tags">
-          وسوم: قطاع غزة، ملف الجثث، ملف الأسرى، الجيش الإسرائيلي
-        </div>
-        <div class="card-links">
-          <a href="files/reading-after-bodies-final.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
-          <a href="files/reading-after-bodies-final.docx" target="_blank">📝 نسخة Word</a>
-        </div>
-      </div>
-
-      <!-- ملف 2 -->
-      <div class="card">
-        <div class="card-title">📄 ملف الجثث – من الميدان إلى الطاولة السياسية</div>
-        <div class="card-meta">التصنيف: ملف تحليلي كامل | التاريخ: 15/01/2025</div>
-        <div class="card-tags">
-          وسوم: ملف الجثث، رفح، الخط الأصفر، الترتيبات الأمنية
-        </div>
-        <div class="card-links">
-          <a href="files/bodies-file-gaza-full.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
-          <a href="files/bodies-file-gaza-full.docx" target="_blank">📝 نسخة Word</a>
-        </div>
-      </div>
-
-      <!-- ملف 3 -->
-      <div class="card">
-        <div class="card-title">📄 ما بعد الحرب في غزة – ملامح القوة الدولية وترتيبات الأمن</div>
-        <div class="card-meta">التصنيف: ملف ما بعد الحرب | التاريخ: 01/02/2025</div>
-        <div class="card-tags">
-          وسوم: ما بعد الحرب، القوة الدولية، الشرطة الفلسطينية، الإقليم
-        </div>
-        <div class="card-links">
-          <a href="files/post-war-gaza-international-force.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
-          <a href="files/post-war-gaza-international-force.docx" target="_blank">📝 نسخة Word</a>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      🔖 “هذا التحليل يُبنى على الوقائع الميدانية والسياسية الفعلية، لا على الرواية الإعلامية العبرية”<br />
-      🌐 <a href="https://dahalankitchen-ai.github.io/political-monitoring/">
-        جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية 2025
-      </a>
-    </footer>
   </div>
 </body>
-</html>
+  </html>
