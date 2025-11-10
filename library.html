@@ -1,204 +1,193 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>مكتبة فريق المتابعة السياسية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
-      font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-      padding: 40px 20px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050814;
+      color: #f5f5f5;
     }
-
-    h1 {
-      color: #facc15;
-      font-size: 1.9rem;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #cbd5f5;
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .nav {
-      margin: 25px auto 35px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-
-    .nav a {
-      border: 1px solid #1f2937;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #020617;
-    }
-
-    .nav a:hover {
-      background: #111827;
-    }
-
-    .hint {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      margin-bottom: 20px;
-    }
-
-    .tags-note {
-      font-size: 0.85rem;
-      color: #9ca3af;
-      margin-top: 4px;
-    }
-
-    .library-container {
+    .container {
       max-width: 900px;
       margin: 0 auto;
-      text-align: right;
+      padding: 32px 16px 48px;
     }
-
-    .doc-card {
-      background: #020617;
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #ffd54f;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      margin-top: 0;
+      margin-bottom: 1.8rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #b0bec5;
+      margin-bottom: 1.8rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.9rem;
       border: 1px solid #1f2937;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-buttons a:hover {
+      background: #1f2937;
+    }
+    .section-title {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #e5e7eb;
     }
 
-    .doc-title {
-      font-weight: 600;
-      font-size: 0.98rem;
-      margin-bottom: 4px;
+    /* حاوية للكروت عشان المسافات تكون ثابتة */
+    .cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
-    .doc-meta {
+    .card {
+      background: #0b1020;
+      border-radius: 18px;
+      padding: 18px 16px;
+      border: 1px solid #1e293b;
+    }
+    .card-title {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .card-meta {
       font-size: 0.8rem;
       color: #9ca3af;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-
-    .doc-tags {
+    .card-tags {
       font-size: 0.8rem;
       color: #a5b4fc;
+      margin-bottom: 8px;
     }
-
-    .doc-link {
+    .card-links a {
       font-size: 0.85rem;
-      margin-top: 6px;
+      text-decoration: none;
+      color: #93c5fd;
+      margin-inline-end: 12px;
     }
-
-    .footer {
-      margin-top: 35px;
-      font-size: 0.85rem;
+    .card-links a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.8rem;
       color: #9ca3af;
+      line-height: 1.7;
     }
-
-    .footer strong {
-      color: #e5e7eb;
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <!-- العنوان الرئيسي -->
+    <h1>📚 مكتبة فريق المتابعة السياسية</h1>
+    <h2>أرشيف المواد التحليلية والتقارير والملفات الكاملة</h2>
+    <p class="subtitle">
+      هذه الصفحة تجمع المواد الكاملة الصادرة عن فريق المتابعة السياسية —  
+      يمكن تحميل كل ملف بصيغة Word أو PDF مباشرة لاستخدامه في الأبحاث، الدراسات أو العمل الميداني.
+    </p>
 
-  <h1>📚 مكتبة فريق المتابعة السياسية</h1>
-  <h2>أرشيف المواد التحليلية والتقارير والملفات الكاملة</h2>
+    <!-- الأزرار الرئيسية -->
+    <div class="nav-buttons">
+      <!-- روابط داخل نفس المشروع بدون / في البداية -->
+      <a href="index.html">🏠 الصفحة الرئيسية</a>
+      <a href="analyses.html">📊 التحليلات</a>
+      <a href="field-gaza.html">📸 التقارير الميدانية</a>
+      <a href="files.html">🍀 الملفات التحليلية الكبرى</a>
+    </div>
 
-  <div class="nav">
-    <a href="index.html">🏠 الصفحة الرئيسية</a>
-    <a href="analyses.html">📊 التحليلات</a>
-    <a href="reports.html">📸 التقارير الميدانية</a>
-    <a href="files.html">🍀 الملفات التحليلية الكبرى</a>
+    <!-- أحدث الملفات الكاملة -->
+    <div class="section-title">أحدث الملفات الكاملة:</div>
+
+    <div class="cards-list">
+      <!-- ملف 1 -->
+      <div class="card">
+        <div class="card-title">📄 قراءة واقعية – ما بعد تسليم الرفات (النسخة النهائية)</div>
+        <div class="card-meta">التصنيف: تحليل سياسي | التاريخ: 01/01/2025</div>
+        <div class="card-tags">
+          وسوم: قطاع غزة، ملف الجثث، ملف الأسرى، الجيش الإسرائيلي
+        </div>
+        <div class="card-links">
+          <a href="files/reading-after-bodies-final.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
+          <a href="files/reading-after-bodies-final.docx" target="_blank">📝 نسخة Word</a>
+        </div>
+      </div>
+
+      <!-- ملف 2 -->
+      <div class="card">
+        <div class="card-title">📄 ملف الجثث – من الميدان إلى الطاولة السياسية</div>
+        <div class="card-meta">التصنيف: ملف تحليلي كامل | التاريخ: 15/01/2025</div>
+        <div class="card-tags">
+          وسوم: ملف الجثث، رفح، الخط الأصفر، الترتيبات الأمنية
+        </div>
+        <div class="card-links">
+          <a href="files/bodies-file-gaza-full.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
+          <a href="files/bodies-file-gaza-full.docx" target="_blank">📝 نسخة Word</a>
+        </div>
+      </div>
+
+      <!-- ملف 3 -->
+      <div class="card">
+        <div class="card-title">📄 ما بعد الحرب في غزة – ملامح القوة الدولية وترتيبات الأمن</div>
+        <div class="card-meta">التصنيف: ملف ما بعد الحرب | التاريخ: 01/02/2025</div>
+        <div class="card-tags">
+          وسوم: ما بعد الحرب، القوة الدولية، الشرطة الفلسطينية، الإقليم
+        </div>
+        <div class="card-links">
+          <a href="files/post-war-gaza-international-force.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
+          <a href="files/post-war-gaza-international-force.docx" target="_blank">📝 نسخة Word</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      🔖 “هذا التحليل يُبنى على الوقائع الميدانية والسياسية الفعلية، لا على الرواية الإعلامية العبرية”<br />
+      🌐 <a href="https://dahalankitchen-ai.github.io/political-monitoring/">
+        جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية 2025
+      </a>
+    </footer>
   </div>
-
-  <p class="hint">
-    هذه الصفحة تجمع المواد الكاملة الصادرة عن فريق المتابعة السياسية —
-    يمكن تحميل كل ملف بصيغة Word أو PDF مباشرة.
-  </p>
-
-  <div class="library-container" id="library-list">
-    <!-- هنا السكربت بيضيف البطاقات تلقائياً -->
-  </div>
-
-  <p class="footer">
-    🌐 جميع الحقوق محفوظة لموقع <strong>فريق المتابعة السياسية – نعيم محمد دحلان</strong> © 2025
-  </p>
-
-  <script>
-    // 🔽🔽🔽  هنا قائمة الملفات في مجلد files/  🔽🔽🔽
-    // كل ما تضيف ملف جديد: زِد كائن جديد داخل هذا المصفوفة
-    const documents = [
-      {
-        category: "تحليل سياسي",
-        title: "قراءة واقعية – ما بعد تسليم الرفات (النسخة النهائية)",
-        date: "2025-01-01",
-        file: "قراءة_واقعية_ما_بعد_تسليم_الرفات_النسخة_النهائية.docx", // تأكد أن الاسم مطابق تمامًا لاسم الملف داخل مجلد files
-        tags: ["قطاع غزة", "ملف الأسرى", "الاحتلال الإسرائيلي"]
-      }
-
-      // مثال تضيف بعده فاصلة ثم ملف جديد:
-      // ,{
-      //   category: "تقرير ميداني",
-      //   title: "عنوان التقرير الثاني",
-      //   date: "2025-02-10",
-      //   file: "report2.pdf",
-      //   tags: ["شمال غزة", "الوضع الميداني"]
-      // }
-    ];
-
-    function formatDate(iso) {
-      if (!iso) return "";
-      const [y, m, d] = iso.split("-");
-      return `${d}/${m}/${y}`;
-    }
-
-    const container = document.getElementById("library-list");
-
-    if (documents.length === 0) {
-      container.innerHTML = "<p class='hint'>لا توجد ملفات في الأرشيف حتى الآن.</p>";
-    } else {
-      documents.forEach(doc => {
-        const card = document.createElement("div");
-        card.className = "doc-card";
-
-        const tagsText = doc.tags && doc.tags.length
-          ? "وسوم: " + doc.tags.join("، ")
-          : "";
-
-        card.innerHTML = `
-          <div class="doc-title">📄 ${doc.title}</div>
-          <div class="doc-meta">
-            التصنيف: ${doc.category || "غير مصنّف"}
-            ${doc.date ? " | التاريخ: " + formatDate(doc.date) : ""}
-          </div>
-          ${tagsText ? `<div class="doc-tags">${tagsText}</div>` : ""}
-          <div class="doc-link">
-            🔗 <a href="files/${doc.file}" target="_blank">فتح / تحميل الملف</a>
-          </div>
-        `;
-
-        container.appendChild(card);
-      });
-    }
-  </script>
-
 </body>
 </html>
