@@ -1,187 +1,155 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>⚡ فريق المتابعة السياسية — نعيم محمد دحلان</title>
-    <meta name="description" content="الموقع الرسمي لفريق المتابعة السياسية — بإشراف نعيم محمد دحلان. قراءة واقعية للمشهد الفلسطيني والإقليمي، بين الميدان والسياسة." />
-
-    <!-- خط Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- أيقونة الموقع -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-    <style>
-        body {
-            margin: 0;
-            padding: 40px 16px;
-            font-family: "Cairo", sans-serif;
-            background: #0b0f19; /* داكن مائل للأزرق */
-            color: #e5e7eb;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h1 {
-            color: #facc15;
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            font-size: 1.05rem;
-            color: #cbd5f5;
-            margin-bottom: 30px;
-        }
-
-        hr {
-            width: 70px;
-            border: 0;
-            border-top: 2px solid #facc15;
-            margin: 22px auto;
-        }
-
-        .lead, .tagline {
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 22px;
-            color: #e5e7eb;
-        }
-
-        .sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-
-        .section-card {
-            display: block;
-            padding: 16px;
-            border-radius: 16px;
-            background: #111827;
-            color: inherit;
-            text-decoration: none;
-            border: 1px solid #1e293b;
-            transition: all 0.2s ease;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-        }
-
-        .section-card span.icon {
-            font-size: 1.4rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .section-card h2 {
-            font-size: 1.05rem;
-            margin: 0 0 6px;
-            color: #facc15;
-        }
-
-        .section-card p {
-            font-size: 0.88rem;
-            color: #cbd5f5;
-            margin: 0;
-        }
-
-        .section-card:hover {
-            transform: translateY(-3px);
-            border-color: #facc15;
-            box-shadow: 0 8px 25px rgba(250, 204, 21, 0.15);
-        }
-
-        .update-note {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-top: 28px;
-        }
-
-        .footer {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-top: 30px;
-        }
-
-        .footer strong {
-            color: #e5e7eb;
-        }
-
-        @media (max-width: 480px) {
-            body { padding: 28px 10px; }
-            h1 { font-size: 1.7rem; }
-            .subtitle { font-size: 0.95rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>مكتبة فريق المتابعة السياسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050814;
+      color: #f5f5f5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #ffd54f;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      margin-top: 0;
+      margin-bottom: 1.8rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #b0bec5;
+      margin-bottom: 1.8rem;
+      font-size: 0.95rem;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      border: 1px solid #1f2937;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-buttons a:hover {
+      background: #1f2937;
+    }
+    .section-title {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+    .card {
+      background: #0b1020;
+      border-radius: 18px;
+      padding: 18px 16px;
+      border: 1px solid #1e293b;
+      margin-bottom: 18px;
+    }
+    .card-title {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .card-tags {
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      margin-bottom: 8px;
+    }
+    .card-links a {
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #93c5fd;
+      margin-inline-end: 12px;
+    }
+    .card-links a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>⚡ فريق المتابعة السياسية</h1>
-        <p class="subtitle">بإشراف نعيم محمد دحلان — قراءة واقعية للمشهد الفلسطيني بين الميدان والسياسة</p>
+  <div class="container">
+    <!-- العنوان الرئيسي -->
+    <h1>📚 مكتبة فريق المتابعة السياسية</h1>
+    <h2>أرشيف المواد التحليلية والتقارير والملفات الكاملة</h2>
+    <p class="subtitle">
+      هذه الصفحة تجمع المواد الكاملة الصادرة عن فريق المتابعة السياسية —  
+      يمكن تحميل كل ملف بصيغة Word أو PDF مباشرة.
+    </p>
 
-        <hr />
+    <!-- الأزرار الرئيسية -->
+    <div class="nav-buttons">
+      <!-- روابط داخل نفس المشروع بدون / في البداية -->
+      <a href="index.html">🏠 الصفحة الرئيسية</a>
+      <a href="analyses.html">📊 التحليلات</a>
+      <a href="field-gaza.html">📸 التقارير الميدانية</a>
+      <a href="files.html">🍀 الملفات التحليلية الكبرى</a>
+    </div>
 
-        <p class="lead">
-            نتابع المشهد لحظة بلحظة، ونقدّم قراءة واقعية مبنية على الوقائع السياسية والميدانية،
-            بعيدًا عن التهويل أو التبسيط الإعلامي.
-        </p>
+    <!-- مثال كارت لملف كامل -->
+    <div class="section-title">أحدث الملفات الكاملة:</div>
 
-        <p class="tagline">✍️ نكتب الواقع كما هو، لا كما يُروى — لنُعيد للوعي الفلسطيني قدرته على الفهم والتحليل.</p>
+    <div class="card">
+      <div class="card-title">📄 قراءة واقعية – ما بعد تسليم الرفات (النسخة النهائية)</div>
+      <div class="card-meta">التصنيف: تحليل سياسي | التاريخ: 01/01/2025</div>
+      <div class="card-tags">
+        وسوم: قطاع غزة، ملف الأسرى، الاحتلال الإسرائيلي
+      </div>
+      <div class="card-links">
+        <!-- غيّر أسماء الملفات حسب الموجود فعليًا داخل مجلد files -->
+        <a href="files/reading-after-bodies-final.pdf" target="_blank">🔗 فتح / تحميل الملف (PDF)</a>
+        <a href="files/reading-after-bodies-final.docx" target="_blank">📝 نسخة Word</a>
+      </div>
+    </div>
 
-        <div class="sections">
-            <a class="section-card" href="analyses.html">
-                <span class="icon">📊</span>
-                <h2>التحليلات</h2>
-                <p>قراءات سياسية معمّقة وتقديرات مستقبلية مبنية على المعطيات الإسرائيلية والإقليمية.</p>
-            
-
-            <a class="section-card" href="reports.html">
-                <span class="icon">📸</span>
-                <h2>التقارير الميدانية</h2>
-                <p>متابعة مباشرة للوقائع على الأرض وتوثيق دقيق لحركة الميدان.</p>
-            </a>
-
-            <a class="section-card" href="files.html">
-                <span class="icon">🧩</span>
-                <h2>الملفات التحليلية الكبرى</h2>
-                <p>سلاسل تحليلية تجمع الأبعاد الميدانية والسياسية في ملفات محورية.</p>
-            </a>
-
-            <a class="section-card" href="library.html">
-  <span class="icon">📚</span>
-  <h2>مكتبة الفريق</h2>
-  <p>تكامل للمواد التحليلية والتقارير والمراجع الرسمية للفريق.</p>
-</a>
-<a class="section-card" href="israeli-analyses.md">
-  <span class="icon">🇮🇱</span>
-  <h2>محور الإعلام الإسرائيلي</h2>
-  <p>لفهم كيف تصنع إسرائيل روايتها حول غزة والعالم.</p>
-</a>
-
-<a class="section-card" href="field-gaza.md">
-  <span class="icon">⚔️</span>
-  <h2>الميدان في غزة</h2>
-  <p>تغطيات ميدانية تربط بين الوقائع اليومية والخرائط السياسية والإعلامية.</p>
-</a>
-
-<a class="section-card" href="postwar-gaza.md">
-  <span class="icon">⚖️</span>
-  <h2>ما بعد الحرب في غزة</h2>
-  <p>تحليلات سياسية وأمنية حول الترتيبات المستقبلية ودور الأطراف الإقليمية في إدارة مرحلة اليوم التالي للحرب.</p>
-</a>
-
-<p class="update-note">🌀 تحليل جديد يصدر عن الفريق</p>
-
-<footer>
-  <p class="footer">
-    🌐 جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية — نعيم محمد دحلان 2025
-  </p>
-</footer>
-</div>
+    <footer>
+      🔖 “هذا التحليل يُبنى على الوقائع الميدانية والسياسية الفعلية، لا على الرواية الإعلامية العبرية”<br />
+      🌐 <a href="https://dahalankitchen-ai.github.io/political-monitoring/">
+        جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية 2025
+      </a>
+    </footer>
+  </div>
 </body>
 </html>
