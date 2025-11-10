@@ -1,100 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>📊 التحليلات السياسية — فريق المتابعة السياسية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="صفحة التحليلات السياسية لفريق المتابعة السياسية — نعيم محمد دحلان.">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Cairo", system-ui;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      color: #facc15;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin: 10px 0;
-      line-height: 1.8;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      width: 70px;
-      border: 1px solid #facc15;
-      margin: 25px auto;
-    }
-
-    .analysis-list {
-      text-align: right;
-      display: inline-block;
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-      width: 90%;
-      max-width: 650px;
-    }
-
-    .analysis-list a {
-      display: block;
-      color: #38bdf8;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .footer {
-      margin-top: 40px;
-      color: #9ca3af;
-      font-size: 0.9rem;
-    }
-
-    .back a {
-      color: #facc15;
-      font-weight: 600;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>أحدث التحليلات | فريق المتابعة السياسية</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <nav class="nav">
+    <a href="/political-monitoring/">الرئيسية</a>
+    <a href="/political-monitoring/analyses.html" class="active">أحدث التحليلات</a>
+    <a href="/political-monitoring/files.html">الملفات</a>
+    <a href="/political-monitoring/field-gaza.html">التوثيق الميداني</a>
+    <a href="/political-monitoring/about.html">عن الفريق</a>
+  </nav>
 
-  <h1>📊 التحليلات السياسية</h1>
-  <p>قراءة معمّقة للمشهد الفلسطيني — بين الميدان والسياسة.</p>
+  <main class="container">
+    <h1>أحدث التحليلات</h1>
 
-  <hr>
+    <section class="grid">
+      <article class="card">
+        <h3>📊 المشهد السياسي في غزة</h3>
+        <p>تحليل معمّق للمتغيرات الداخلية وموازين القوى بعد التصعيد الأخير.</p>
+        <a href="/political-monitoring/files/2025-11-10-daily-israeli-analysis.html">اقرأ التحليل</a>
+      </article>
 
-  <div class="analysis-list">
-    <!-- عدّل أسماء الملفات لتطابق أسماء ملفاتك داخل مجلد files/ -->
-    <a href="files/تحليل_ما_بعد_تسليم_الرفات.docx">🧠 قراءة ما بعد تسليم الرفات — أبعاد ميدانية وسياسية</a>
-    <a href="files/تحليل_ترتيبات_غزة_الإقليمية.docx">🌍 ترتيبات غزة الإقليمية — قراءة في خرائط النفوذ</a>
-    <a href="files/تحليل_الوعي_الفلسطيني_الجديد.docx">🕯️ الوعي الفلسطيني الجديد — بين الصدمة وإعادة البناء</a>
-    <!-- أضف المزيد من التحليلات بنفس الشكل هنا -->
-  </div>
+      <article class="card">
+        <h3>🇮🇱 التحليل الإسرائيلي اليومي</h3>
+        <p>ملخص الاتجاهات في الصحافة العبرية والخطاب الأمني الإسرائيلي.</p>
+        <a href="/political-monitoring/israeli-analyses.md">عرض التقرير</a>
+      </article>
 
-  <hr>
+      <article class="card">
+        <h3>🌍 التفاعل الإقليمي</h3>
+        <p>كيف تنعكس التفاهمات الإقليمية على واقع غزة؟ قراءة استراتيجية مختصرة.</p>
+        <a href="/political-monitoring/files.html">اقرأ المزيد</a>
+      </article>
+    </section>
+  </main>
 
-  <div class="back">
-    🔙 <a href="index.html">العودة إلى الصفحة الرئيسية</a>
-  </div>
-
-  <p class="footer">
-    🌐 جميع الحقوق محفوظة © لموقع فريق المتابعة السياسية — نعيم محمد دحلان 2025
-  </p>
-
+  <footer class="footer">
+    © 2025 فريق المتابعة السياسية · إشراف نعيم محمد دحلان
+  </footer>
 </body>
 </html>
