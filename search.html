@@ -1,0 +1,36 @@
+---
+layout: default
+title: بحث
+permalink: /search.html
+---
+<h1>بحث</h1>
+<input id="q" placeholder="اكتب كلمة مفتاحية…" style="width:100%;padding:.9rem;border:1px solid #e5e7eb;border-radius:.75rem">
+<p id="count" style="opacity:.7"></p>
+<ul id="results" style="display:grid;gap:1rem;padding:0"></ul>
+
+<script>
+const posts = [
+  {% for p in site.posts %}
+  { "t":"{{ p.title | escape }}",
+    "u":"{{ p.url | relative_url }}",
+    "d":"{{ p.date | date: '%Y-%m-%d' }}",
+    "x":"{{ p.excerpt | strip_html | strip_newlines | escape }}" }
+  {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
+const q = document.getElementById('q'), out = document.getElementById('results'), c = document.getElementById('count');
+q.addEventListener('input', () => {
+  const s = q.value.trim().toLowerCase();
+  out.innerHTML = ''; c.textContent='';
+  if(!s){ return }
+  const res = posts.filter(p => (p.t+p.x).toLowerCase().includes(s)).slice(0,50);
+  c.textContent = res.length ? `نتائج: ${res.length}` : 'لا نتائج';
+  res.forEach(p=>{
+    const li = document.createElement('li');
+    li.setAttribute('data-card','');
+    li.innerHTML = `<a href="${p.u}"><strong>${p.t}</strong></a><br><small>${p.d}</small><p>${p.x}</p>`;
+    out.appendChild(li);
+  });
+});
+  </script>
