@@ -1,0 +1,49 @@
+---
+layout: default
+title: الوسوم
+permalink: /tags.html
+---
+<h1>الوسوم</h1>
+
+<div data-card>
+  <strong>كل الوسوم:</strong>
+  {% assign tags_list = site.tags | sort %}
+  {% for tag in tags_list %}
+    <a href="#{{ tag[0] | slugify }}" style="margin-inline:.4rem">#{{ tag[0] }} ({{ tag[1].size }})</a>
+  {% endfor %}
+</div>
+
+<h2 id="tag-title" style="margin-top:1rem">اختر وسمًا</h2>
+<ul id="tag-results" style="display:grid;gap:1rem;padding:0"></ul>
+
+<script>
+const all = [
+  {% for p in site.posts %}
+  { "t":"{{ p.title | escape }}",
+    "u":"{{ p.url | relative_url }}",
+    "d":"{{ p.date | date: '%Y-%m-%d' }}",
+    "tags":[{% for t in p.tags %}"{{ t | slugify }}"{% unless forloop.last %},{% endunless %}{% endfor %}] }
+  {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
+function render(tag){
+  const list = document.getElementById('tag-results');
+  const title = document.getElementById('tag-title');
+  list.innerHTML = '';
+  if(!tag){ title.textContent='اختر وسمًا'; return }
+  title.textContent = `#${tag}`;
+  const slug = tag.toLowerCase().replace(/\s+/g,'-');
+  const res = all.filter(p=>p.tags.includes(slug));
+  if(!res.length){ list.innerHTML = '<li>لا مقالات تحت هذا الوسم.</li>'; return }
+  res.forEach(p=>{
+    const li = document.createElement('li'); li.setAttribute('data-card','');
+    li.innerHTML = `<a href="${p.u}"><strong>${p.t}</strong></a><br><small>${p.d}</small>`;
+    list.appendChild(li);
+  });
+}
+
+function hashChange(){ render(location.hash.slice(1)) }
+window.addEventListener('hashchange', hashChange);
+hashChange();
+    </script>
