@@ -1,33 +1,16 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>الملفات السياسية | فريق المتابعة</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-  <nav class="nav">
-    <a href="/political-monitoring/">الرئيسية</a>
-    <a href="/political-monitoring/analyses.html">التحليلات</a>
-    <a href="/political-monitoring/files.html" class="active">الملفات</a>
-    <a href="/political-monitoring/field-gaza.html">التوثيق الميداني</a>
-    <a href="/political-monitoring/about.html">عن الفريق</a>
-  </nav>
+---
+layout: default
+title: الملفات التحليلية
+permalink: /files.html
+---
+<h1>الملفات التحليلية</h1>
 
-  <main class="container">
-    <h1>الملفات السياسية</h1>
-    <p>هنا تجد أرشيف الملفات السياسية التي يعالجها فريق المتابعة بالتحليل والرصد.</p>
-
-    <ul class="file-list">
-      <li><a href="/political-monitoring/field-gaza.md">📁 ملف غزة الميداني</a> — متابعة التطورات اليومية.</li>
-      <li><a href="/political-monitoring/israeli-analyses.md">📁 التحليل الإسرائيلي اليومي</a> — تقارير الصحف العبرية وتحليل المضمون.</li>
-      <li><a href="/political-monitoring/2025-11-10-daily-israeli-analysis.html">📁 التقييم اليومي 10 نوفمبر 2025</a> — تحليل الموقف العام والتفاعلات السياسية.</li>
-    </ul>
-  </main>
-
-  <footer class="footer">
-    © 2025 فريق المتابعة السياسية · إشراف نعيم محمد دحلان
-  </footer>
-</body>
-</html>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem">
+  {% for d in site.data.dossiers %}
+    <article data-card>
+      <h2 style="margin:0 0 .25rem">{{ d.title }}</h2>
+      <p style="margin:.25rem 0 1rem">{{ d.blurb }}</p>
+      <a href="{{ site.baseurl }}/files/{{ d.slug }}/">دخول الملف →</a>
+    </article>
+  {% endfor %}
+</div>
