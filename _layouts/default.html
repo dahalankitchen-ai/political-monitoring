@@ -1,68 +1,30 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+---
+layout: default
+title: أحدث التحليلات
+permalink: /analyses.html
+---
+<h1>أحدث التحليلات</h1>
 
-  {% seo %}
+<ul style="display:grid;gap:1rem;padding:0;margin:1rem 0 0">
+{% for post in site.posts %}
+  <li data-card style="list-style:none">
+    <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a>
+    <div><small>{{ post.date | date: "%Y-%m-%d" }}</small></div>
 
-  <!-- OG/Twitter fallback -->
-  <meta property="og:locale" content="ar_AR">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | default: site.description }}">
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/cover.jpg">
+    {% if post.tags and post.tags.size > 0 %}
+      <small>
+        وسوم:
+        {% for t in post.tags %}
+          <a href="{{ site.baseurl }}/tags.html#{{ t | slugify }}">#{{ t }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </small>
+    {% endif %}
 
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-  <link rel="sitemap" type="application/xml" href="{{ site.baseurl }}/sitemap.xml" />
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+    <p style="margin:.6rem 0 0">{{ post.excerpt | strip_html | strip_newlines }}</p>
+  </li>
+{% endfor %}
+</ul>
 
-  <link rel="icon" href="{{ site.baseurl }}/assets/favicon.ico">
-  <meta name="theme-color" content="#111827">
-
-  <link rel="preload" as="style" href="{{ site.baseurl }}/assets/css/main.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
-
-  <style>
-    :root{--max:1100px}
-    html,body{margin:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto;line-height:1.8;color:#111;background:#fff}
-    .container{max-width:var(--max);margin:auto;padding:1rem}
-    nav{position:sticky;top:0;background:#fff;backdrop-filter:saturate(1.1) blur(6px);border-bottom:1px solid #eee;z-index:10}
-    nav a{margin-inline:.5rem}
-    a{color:#0ea5e9;text-decoration:none} a:hover{text-decoration:underline}
-    img{max-width:100%;height:auto;border-radius:.5rem}
-    [data-card]{border:1px solid #e5e7eb;border-radius:1rem;padding:1rem;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.04)}
-    .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem 1rem;border-radius:.5rem}
-  </style>
-</head>
-<body>
-  <a class="skip" href="#main">تجاوز إلى المحتوى</a>
-
-  <nav class="container">
-    <strong>{{ site.title }}</strong> •
-    <a href="{{ site.baseurl }}/">الرئيسية</a> •
-    <a href="{{ site.baseurl }}/files.html">الملفات التحليلية</a> •
-    <a href="{{ site.baseurl }}/analyses.html">أحدث التحليلات</a> •
-    <a href="{{ site.baseurl }}/field-gaza.html">التوثيق الميداني</a> •
-    <a href="{{ site.baseurl }}/about.html">عن المشروع</a> •
-    <a href="{{ site.baseurl }}/search.html">بحث</a> •
-    <a href="{{ site.baseurl }}/tags.html">وسوم</a>
-  </nav>
-
-  <main id="main" class="container">
-    {{ content }}
-  </main>
-
-  <footer class="container" style="margin-top:3rem">
-    <small>© {{ site.title }} — {{ "now" | date: "%Y" }}</small>
-  </footer>
-
-  <script>
-    document.querySelectorAll('img').forEach(i=>i.loading='lazy');
-  </script>
-</body>
-    </html>
+<p style="margin-top:1.5rem;opacity:.7">
+  للتحكّم بالمقتطف داخل أي مقال استخدم فاصل <code>&lt;!--more--&gt;</code>.
+</p>
