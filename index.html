@@ -1,269 +1,93 @@
----
-layout: none
----
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>فريق المتابعة السياسية | الموقع الرسمي</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="تحليل واقعي بعيدًا عن الضجيج الإعلامي، توثيق ميداني ورصد عبري وتحليلات سياسية." />
-
-  <!-- Tailwind CDN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فريق المتابعة السياسية | الصفحة الرئيسية</title>
+  <meta name="description" content="تحليل واقعي، توثيق ميداني، ورصد عبري — فهم ما يجري بعمق واتزان." />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- (اختياري) خط عربي -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#050814;
-      --card:#0b0f1f;
-      --text:#cbd5e1;
-      --muted:#94a3b8;
-      --accent:#d6b464;
-      --accent-soft:#f4e3b3;
-    }
-    body{font-family:"Cairo",system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif; background:var(--bg); color:var(--text)}
-    .card{background:var(--card); border:1px solid #1f2937; border-radius:1.25rem}
-    .meta{color:var(--muted); font-size:.85rem}
-    a{color:#60a5fa}
-    a:hover{text-decoration:underline}
-    .tag{border:1px solid #334155; border-radius:999px; padding:.25rem .6rem; font-size:.75rem}
-    .badge{background:#0b1222;border:1px solid #1f2937;border-radius:.6rem;padding:.35rem .6rem}
+    body { font-family: 'Cairo', system-ui, sans-serif; background-color: #0f172a; color: #f1f5f9; }
+    .card { background: #1e293b; border-radius: 1rem; padding: 1rem; border: 1px solid #334155; }
+    .meta { color: #94a3b8; font-size: .85rem; }
+    a { color: #38bdf8; }
   </style>
 </head>
+<body class="p-4">
 
-<body class="text-slate-100">
-  <!-- شريط علوي -->
-  <header class="border-b border-slate-800/60">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full bg-yellow-500/20 grid place-items-center">⚡</div>
-        <div>
-          <h1 class="text-lg font-semibold">فريق المتابعة السياسية</h1>
-          <p class="text-[13px] text-slate-400">تحليل واقعي • توثيق ميداني • رصد عبري</p>
-        </div>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-4 text-sm">
-        <a href="#files" class="hover:underline">الملفات</a>
-        <a href="#field" class="hover:underline">التوثيق الميداني</a>
-        <a href="#hebrew" class="hover:underline">الرصد العبري</a>
-        <a href="#about" class="hover:underline">عن المشروع</a>
-      </nav>
-    </div>
+  <!-- العنوان الرئيسي -->
+  <header class="text-center mb-8">
+    <h1 class="text-2xl font-bold mb-2">فريق المتابعة السياسية</h1>
+    <p class="text-slate-400">تحليل واقعي ▪ توثيق ميداني ▪ رصد عبري</p>
   </header>
 
-  <!-- البطل -->
-  <section class="border-b border-slate-800/60">
-    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14">
-      <div class="space-y-5">
-        <p class="uppercase text-xs tracking-wider text-slate-400">الرسائل الخفية</p>
-        <h2 class="text-2xl md:text-3xl font-semibold leading-relaxed">
-          تحليل واقعي بعيدًا عن الضجيج الإعلامي
-        </h2>
-        <p class="text-sm md:text-base text-slate-300 max-w-3xl">
-          عملٌ مستقل يربط بين الميدان والسياسة، قائم على الوقائع والمعطيات.
-        </p>
+  <!-- شريط الأقسام -->
+  <nav class="flex justify-center gap-3 mb-10">
+    <a href="{{ site.baseurl }}/analyses" class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700">🧠 التحليل السياسي</a>
+    <a href="{{ site.baseurl }}/hebrew" class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700">📡 الرصد العبري</a>
+    <a href="{{ site.baseurl }}/reports" class="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-700">📜 التوثيق الميداني</a>
+  </nav>
 
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">تحليل استراتيجي</span>
-          <span class="tag">ملف التحركات الإقليمية 🌍</span>
-        </div>
-      </div>
-
-      <!-- 3 بطاقات تعريفية صغيرة -->
-      <div class="relative mt-8 grid md:grid-cols-3 gap-4">
-        <div class="rounded-xl border border-slate-800/60 p-4">
-          <div class="flex items-center gap-2 text-xs text-slate-400">
-            <span class="badge">🎛️ منهجية</span><span>—</span><span>فصل الضوضاء عن الإشارة</span>
-          </div>
-          <p class="text-[13px] text-slate-400 mt-3">فهم الواقع كما هو، لا كما يُروى.</p>
-        </div>
-
-        <div class="rounded-xl border border-slate-800/60 p-4">
-          <div class="flex items-center gap-2 text-xs text-slate-400">
-            <span class="badge">🧭 مبدأ</span><span>—</span><span>مرجعية المصادر والتوثيق</span>
-          </div>
-          <p class="text-[13px] text-slate-400 mt-3">تجميع متقاطع للمصادر وتدقيق زمني/مكاني.</p>
-        </div>
-
-        <div class="rounded-xl border border-slate-800/60 p-4">
-          <div class="flex items-center gap-2 text-xs text-slate-400">
-            <span class="badge">📚 تحليل</span><span>—</span><span>خلاصة تنفيذية مختصرة</span>
-          </div>
-          <p class="text-[13px] text-slate-400 mt-3">رسائل واضحة… بلا تهويل.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- الملفات التحليلية -->
-  <section id="files" class="max-w-6xl mx-auto px-4 py-10">
-    <div class="flex items-center justify-between mb-5">
-      <h3 class="text-xl font-semibold">الملفات التحليلية</h3>
-      <p class="text-xs text-slate-400">عناوين الملفات النشطة وروابط القراءة</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4">
-      <!-- ملف: الخط الأصفر شمال غزة -->
-      <article class="card p-5 flex flex-col gap-3">
-        <div class="text-[11px] text-slate-400 flex items-center gap-2">
-          <span class="badge">ميداني</span><span>•</span><span class="badge">غزة</span>
-        </div>
-        <h4 class="text-sm font-semibold">تقرير ميداني — الخط الأصفر شمال غزة ⚡</h4>
-        <p class="text-xs text-slate-300">
-          رصد تحركات شمال غزة خلال ٤٨ ساعة، نقاط ملاحظة وشواهد مرئية.
-        </p>
-        <p class="mt-1 meta">التوثيق: صور/خرائط، مقارنة زمنية</p>
-        <a class="mt-1 text-[11px] text-blue-400 hover:underline"
-           href="{{ site.baseurl }}/reports/yellow-line-north-gaza/">
-          افتح الملف →
-        </a>
+  <!-- قسم الملفات التحليلية -->
+  <section class="max-w-6xl mx-auto mb-10">
+    <h2 class="text-xl font-bold mb-4">الملفات التحليلية</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      {% assign analysis_posts = site.posts | where_exp: "post", "post.categories contains 'تحليل سياسي'" %}
+      {% for post in analysis_posts limit:2 %}
+      <article class="card">
+        <h3 class="text-lg font-semibold mb-1">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="meta mb-2">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <p class="text-slate-300 mb-2">{{ post.summary | default: post.excerpt | strip_html | truncate: 120 }}</p>
+        <a href="{{ post.url | relative_url }}">اقرأ التحليل →</a>
       </article>
-
-      <!-- ملف: تبعات تسليم الجثث وتبادل الأسرى -->
-      <article class="card p-5 flex flex-col gap-3">
-        <div class="text-[11px] text-slate-400 flex items-center gap-2">
-          <span class="badge">تحقق</span><span>•</span><span class="badge">سياسة</span>
-        </div>
-        <h4 class="text-sm font-semibold">ملف الجثث وتبادل الأسرى — التداعيات والسياسات</h4>
-        <p class="text-xs text-slate-300">
-          تقارير وتحقيقات حول تداعيات تسليم الجثث وتبادل الأسرى على مسار الصراع وسياسات الأطراف.
-        </p>
-        <a class="mt-1 text-[11px] text-blue-400 hover:underline"
-           href="{{ site.baseurl }}/reports/repatriation-bodies-conflict-implications/">
-          افتح الملف →
-        </a>
-      </article>
-
-      <!-- ملف: توثيق ميداني (صف عام) -->
-      <article class="card p-5 flex flex-col gap-3">
-        <div class="text-[11px] text-slate-400 flex items-center gap-2">
-          <span class="badge">ميداني</span><span>•</span><span class="badge">توثيق</span>
-        </div>
-        <h4 class="text-sm font-semibold">التوثيق الميداني — غزة</h4>
-        <p class="text-xs text-slate-300">
-          رصد يومي للأحداث الميدانية ضمن إطار العمل التحليلي للفريق.
-        </p>
-        <a class="mt-1 text-[11px] text-blue-400 hover:underline"
-           href="{{ site.baseurl }}/field-gaza.html">
-          صفحة التوثيق →
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <!-- الرصد العبري (يسحب بوستات جِكيل) -->
-  <section id="hebrew" class="max-w-6xl mx-auto px-4 py-10">
-    <div class="flex items-center justify-between mb-5">
-      <h3 class="text-xl font-semibold">الرصد العبري — آخر التقارير</h3>
-      <span class="text-xs text-slate-400">نسحب تلقائيًا آخر 3 بوستات من فئة “رصد عبري”.</span>
-    </div>
-
-    {% assign feed = site.posts | where_exp:"p", "p.categories contains 'رصد عبري'" | sort: "date" | reverse | slice: 0, 3 %}
-    <div class="grid md:grid-cols-3 gap-4">
-      {% for post in feed %}
-        <a href="{{ post.url | relative_url }}" class="card p-5 block hover:border-slate-600">
-          <div class="text-[11px] text-slate-400 flex items-center gap-3">
-            <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-            <span class="badge">{{ post.source | default: "صحافة عبرية" }}</span>
-          </div>
-          <h4 class="text-sm font-semibold mt-2">{{ post.title }}</h4>
-          <p class="text-xs text-slate-400 mt-1">{{ post.summary | default: post.excerpt }}</p>
-          <div class="meta mt-3">
-            الثقة: {{ post.trust_level | default: "مختلط" }} —
-            {% if post.tags and post.tags.size > 0 %}
-              وسوم:
-              {% for t in post.tags %}{{ t }}{% unless forloop.last %}، {% endunless %}{% endfor %}
-            {% endif %}
-          </div>
-        </a>
       {% endfor %}
     </div>
-
-    <div class="text-center mt-6">
-      <a class="inline-block px-4 py-2 rounded-xl border border-slate-700 hover:border-slate-500"
-         href="{{ site.baseurl }}/hebrew-watch/">
-        مشاهدة كل تقارير الرصد
-      </a>
-    </div>
   </section>
 
-  <!-- التوثيق الميداني (تعريف مختصر) -->
-  <section id="field" class="max-w-6xl mx-auto px-4 py-10">
-    <div class="flex items-center justify-between mb-5">
-      <h3 class="text-xl font-semibold">التوثيق الميداني</h3>
-      <p class="text-xs text-slate-400">تجميع مشاهدات وشواهد + مقارنة زمنية</p>
-    </div>
-
+  <!-- قسم الرصد العبري -->
+  <section class="max-w-6xl mx-auto mb-10">
+    <h2 class="text-xl font-bold mb-4">الرصد العبري — أحدث التقارير</h2>
     <div class="grid md:grid-cols-2 gap-4">
-      <article class="card p-5">
-        <div class="text-[11px] text-slate-400">🧭 معايير العمل</div>
-        <h4 class="text-sm font-semibold mt-2">إطار التحقق</h4>
-        <p class="text-xs text-slate-300 mt-1">
-          تدوين متسلسل + مقارنة زمنية/مكانية، مع توثيق بالصور والخرائط عند الإمكان.
-        </p>
-        <p class="text-[11px] mt-3 text-slate-400">
-          يمكن ربط هذا القسم مباشرة بمجدد الملفات على GitHub.
-        </p>
+      {% assign hebrew_posts = site.posts | where_exp: "post", "post.categories contains 'رصد عبري'" %}
+      {% for post in hebrew_posts limit:2 %}
+      <article class="card">
+        <h3 class="text-lg font-semibold mb-1">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="meta mb-2">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <p class="text-slate-300 mb-2">{{ post.summary | default: post.excerpt | strip_html | truncate: 120 }}</p>
+        <a href="{{ post.url | relative_url }}">اقرأ التقرير →</a>
       </article>
-
-      <article class="card p-5">
-        <div class="text-[11px] text-slate-400">🗺️ روابط سريعة</div>
-        <h4 class="text-sm font-semibold mt-2">صفحة التوثيق</h4>
-        <p class="text-xs text-slate-300 mt-1">
-          كل التحديثات الميدانية مجمعة بصفحة واحدة.
-        </p>
-        <a class="mt-2 inline-block text-[11px] text-blue-400 hover:underline"
-           href="{{ site.baseurl }}/field-gaza.html">اذهب للصفحة →</a>
-      </article>
+      {% endfor %}
     </div>
   </section>
 
-  <!-- عن المشروع -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-10">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="text-xl font-semibold">عن المشروع</h3>
-        <p class="text-sm text-slate-300 mt-2">
-          تبسيط الفهم، وبناء ثقافة تحليلية واقعية، وتحصين القارئ من الاستغلال السياسي والانفعال الإعلامي.
-        </p>
-        <p class="text-sm text-slate-300 mt-2">
-          مرجعية بين المصادر، والتحقق الميداني، لفهم ما يجري حولنا بعمق واتزان.
-        </p>
-        <ul class="space-y-1 list-disc pr-5 mt-3 text-sm text-slate-300">
-          <li>الوقائع الميدانية قبل الأحكام السياسية</li>
-          <li>الأحداث ضمن سياقها الزمني/التاريخي</li>
-          <li>مصادر متعددة: فلسطينية، عبرية، دولية</li>
-          <li>أقل قدر ممكن من الانحياز الممكن</li>
-        </ul>
-      </div>
-      <div class="card p-5">
-        <h4 class="text-sm font-semibold">تواصل</h4>
-        <p class="text-[13px] text-slate-400 mt-2">
-          النسخة الحالية قيد التطوير المستمر.
-        </p>
-        <p class="text-[12px] text-slate-500 mt-2">
-          {{ site.url }}{{ site.baseurl }}
-        </p>
-      </div>
+  <!-- قسم التوثيق الميداني -->
+  <section class="max-w-6xl mx-auto mb-10">
+    <h2 class="text-xl font-bold mb-4">التوثيق الميداني — آخر المستجدات</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      {% assign report_posts = site.posts | where_exp: "post", "post.categories contains 'توثيق ميداني'" %}
+      {% for post in report_posts limit:2 %}
+      <article class="card">
+        <h3 class="text-lg font-semibold mb-1">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="meta mb-2">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <p class="text-slate-300 mb-2">{{ post.summary | default: post.excerpt | strip_html | truncate: 120 }}</p>
+        <a href="{{ post.url | relative_url }}">شاهد التوثيق →</a>
+      </article>
+      {% endfor %}
     </div>
   </section>
 
-  <!-- تذييل -->
-  <footer id="contact" class="border-t border-slate-800/60">
-    <div class="max-w-6xl mx-auto px-4 py-8">
-      <p class="text-[12px] text-slate-500">
-        نكتب للمعرفة لا على الرواية الإعلامية الغالبة. على فهم الواقع كما هو، لا كما يُروى.
-      </p>
-      <p class="text-[12px] text-slate-600 mt-2">
-        © 2025 نعيم محمد دحلان — فريق المتابعة السياسية
-      </p>
-    </div>
+  <!-- الفوتر -->
+  <footer class="text-center text-slate-500 mt-10 border-t border-slate-800 pt-6 text-sm">
+    <p>© 2025 نعيم محمد دحلان — فريق المتابعة السياسية</p>
+    <p class="text-slate-600 mt-1">نكتب للمعرفة، لا للضجيج الإعلامي.</p>
   </footer>
+
 </body>
-  </html>
+</html>
