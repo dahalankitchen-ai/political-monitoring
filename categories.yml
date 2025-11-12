@@ -1,0 +1,12 @@
+- name: سياسة
+  slug: politics
+- name: أمن
+  slug: security
+- name: اقتصاد
+  slug: economy
+- name: حقوق إنسان
+  slug: rights
+- name: إعلام وتحليل
+  slug: media
+- name: مسوح رأي
+  slug: polls
