@@ -198,12 +198,47 @@
       </article>
     </div>
   </section>
+<section id="hebrew" class="max-w-6xl mx-auto px-4 md:px-0 mt-10">
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-xl font-semibold">📰 الرصد العبري — آخر التقارير</h3>
+    <span class="text-xs text-slate-400">تلقائيًا من فئة “رصد عبري”</span>
+  </div>
 
-  <!-- الرصد العبري — يسحب تلقائيًا آخر 3 بوستات من فئة "رصد عبري" -->
-  <section id="hebrew" class="max-w-6xl mx-auto px-4 py-10 md:py-12 border-t border-slate-800/60">
-    <div class="flex items-center justify-between mb-6">
-      <h3 class="text-xl font-semibold text-slate-50">📰 الرصد العبري — آخر التقارير</h3>
-      <p class="text-xs text-slate-400">متابعة الإعلام العبري وتحليل الرسائل الخفية</p>
+  {% assign feed = site.posts
+    | where_exp: "p", "p.categories contains 'رصد عبري'"
+    | sort: "date" | reverse | slice: 0, 3 %}
+
+  <div class="grid md:grid-cols-3 gap-4">
+    {% for post in feed %}
+    <a href="{{ post.url }}" class="card flex flex-col gap-2 rounded-2xl border border-slate-800 p-4 hover:border-slate-600 hover:bg-slate-900/40 transition">
+      <div class="text-[11px] text-slate-400 flex items-center gap-2">
+        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span>—</span>
+        <span>{{ post.source | default: "صحافة عبرية" }}</span>
+      </div>
+
+      <h4 class="text-sm font-semibold leading-6">{{ post.title }}</h4>
+
+      <p class="text-xs text-slate-400">
+        {{ post.summary | default: post.excerpt | strip_html }}
+      </p>
+
+      <div class="meta mt-3 text-[11px] text-slate-400">
+        الثقة: {{ post.trust_level | default: "غير محدد" }}
+        {% if post.tags and post.tags.size > 0 %}
+        — وسوم:
+        {% for t in post.tags %}{{ t }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="text-center mt-6">
+    <a href="{{ site.baseurl }}/hebrew-watch/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-800 hover:border-slate-600">
+      مشاهدة كل تقارير الرصد
+    </a>
+</section>
     </div>
 
     {% assign feed = site.posts | where_exp: "p", "p.categories contains 'رصد عبري'" | sort: "date" | reverse | slice: 0, 3 %}
