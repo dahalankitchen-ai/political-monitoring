@@ -1,46 +1,23 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>أحدث التحليلات | فريق المتابعة السياسية</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-  <nav class="nav">
-    <a href="/political-monitoring/">الرئيسية</a>
-    <a href="/political-monitoring/analyses.html" class="active">أحدث التحليلات</a>
-    <a href="/political-monitoring/files.html">الملفات</a>
-    <a href="/political-monitoring/field-gaza.html">التوثيق الميداني</a>
-    <a href="/political-monitoring/about.html">عن الفريق</a>
-  </nav>
+---
+layout: default
+title: "التحليل السياسي — جميع الملفات"
+---
 
-  <main class="container">
-    <h1>أحدث التحليلات</h1>
+<section class="max-w-6xl mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">التحليل السياسي — جميع الملفات</h2>
+  <p class="text-slate-400 mb-6">تجد هنا جميع التحليلات السياسية المنشورة مرتبة حسب الأحدث.</p>
 
-    <section class="grid">
-      <article class="card">
-        <h3>📊 المشهد السياسي في غزة</h3>
-        <p>تحليل معمّق للمتغيرات الداخلية وموازين القوى بعد التصعيد الأخير.</p>
-        <a href="/political-monitoring/files/2025-11-10-daily-israeli-analysis.html">اقرأ التحليل</a>
-      </article>
-
-      <article class="card">
-        <h3>🇮🇱 التحليل الإسرائيلي اليومي</h3>
-        <p>ملخص الاتجاهات في الصحافة العبرية والخطاب الأمني الإسرائيلي.</p>
-        <a href="/political-monitoring/israeli-analyses.md">عرض التقرير</a>
-      </article>
-
-      <article class="card">
-        <h3>🌍 التفاعل الإقليمي</h3>
-        <p>كيف تنعكس التفاهمات الإقليمية على واقع غزة؟ قراءة استراتيجية مختصرة.</p>
-        <a href="/political-monitoring/files.html">اقرأ المزيد</a>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    © 2025 فريق المتابعة السياسية · إشراف نعيم محمد دحلان
-  </footer>
-</body>
-</html>
+  <div class="grid md:grid-cols-2 gap-4">
+    {% assign analysis_posts = site.posts | where_exp: "post", "post.categories contains 'تحليل سياسي'" %}
+    {% for post in analysis_posts %}
+    <article class="bg-slate-900 p-4 rounded-2xl border border-slate-700">
+      <h3 class="text-lg font-semibold mb-2">
+        <a href="{{ post.url | relative_url }}" class="text-blue-400 hover:underline">{{ post.title }}</a>
+      </h3>
+      <p class="text-sm text-slate-400 mb-2">{{ post.date | date: "%Y-%m-%d" }}</p>
+      <p class="text-slate-300 mb-3">{{ post.summary | default: post.excerpt | strip_html | truncate: 150 }}</p>
+      <a href="{{ post.url | relative_url }}" class="text-blue-500 hover:underline">اقرأ التحليل الكامل →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
