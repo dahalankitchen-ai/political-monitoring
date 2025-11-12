@@ -1,12 +1,44 @@
 title: "فريق المتابعة السياسية"
+description: "رصد وتحليل عبري ودولي حول غزة وإسرائيل"
 url: "https://dahalankitchen-ai.github.io"
 baseurl: "/political-monitoring"
 permalink: /:categories/:year/:month/:day/:title/
 markdown: kramdown
 timezone: "Asia/Gaza"
 
+# الإضافات الرسمية المدعومة من GitHub Pages (لا تغيّر الستايل)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# ملفات تُستثنى من البناء
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# القيم الافتراضية لكل الصفحات
 defaults:
   - scope:
       path: ""
     values:
       layout: default
+
+# إعدادات التغذية RSS
+feed:
+  path: feed.xml
+  limit: 20
+
+# إعدادات الخريطة sitemap
+sitemap:
+  filename: sitemap.xml
+  exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+
+# لغة الموقع
+lang: ar
