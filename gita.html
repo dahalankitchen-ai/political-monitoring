@@ -1,0 +1,20 @@
+---
+layout: default
+title: "سلسلة الإدارة الدولية – GITA Files"
+---
+
+<h1>سلسلة الإدارة الدولية – GITA</h1>
+
+<p>هذه السلسلة تحتوي على التحليل الكامل لمشروع الإدارة الدولية، من الجزء 24 وما بعده.</p>
+
+<ul>
+  {% for file in site.static_files %}
+    {% if file.path contains '/gita/' %}
+      <li>
+        <a href="{{ file.path | replace: '/political-monitoring','' }}">
+          {{ file.name | remove: 'part-' | remove: '.md' | prepend: 'الجزء ' }}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
