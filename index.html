@@ -96,15 +96,6 @@
       opacity: 0.4;
       pointer-events: none;
     }
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
     .hero-badge {
       font-size: 0.75rem;
       color: var(--accent);
@@ -257,6 +248,7 @@
 </head>
 <body>
   <div class="wrap">
+
     <!-- NAV -->
     <header class="nav">
       <div class="logo-title">
@@ -273,7 +265,7 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="hero" class="hero">
       <div class="hero-top">
         <div>
           <div class="hero-badge">
@@ -302,8 +294,8 @@
     <!-- MAIN GRID -->
     <main class="grid">
 
-      <!-- LEFT COLUMN -->
-      <section class="card">
+      <!-- LEFT -->
+      <section id="files" class="card">
         <div class="card-header">
           <div class="card-title">الملفات المركزية</div>
           <span class="card-tag card-tag--accent">ملفات قيد التحديث</span>
@@ -343,8 +335,8 @@
         </div>
       </section>
 
-      <!-- RIGHT COLUMN -->
-      <section class="card">
+      <!-- RIGHT -->
+      <section id="hebrew-section" class="card">
         <div class="card-header">
           <div class="card-title">متابعة الصحافة العبرية والتقارير</div>
           <span class="card-tag">تغذية استخباراتية مفتوحة المصدر</span>
@@ -377,6 +369,7 @@
       <span>© مركز المتابعة السياسية – GITA Files</span>
       <span>منصة تجريبية للتكامل بين التحليل السياسي والذكاء الاصطناعي.</span>
     </footer>
+
   </div>
 </body>
-            </html>
+  </html>
