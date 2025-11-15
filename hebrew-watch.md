@@ -1,59 +1,32 @@
 ---
 layout: default
-title: "الرصد العبري اليومي"
-permalink: /hebrew-watch/
+title: "المتابعة العبرية – تقارير وتحليلات"
 ---
 
-<!-- الهيدر التعريفي -->
-<section class="card" style="margin-bottom:16px;">
-  <div class="card-header">
-    <h1 class="card-title">📰 الرصد العبري اليومي</h1>
-    <span class="card-tag card-tag--accent">متابعة مستمرة للإعلام العبري</span>
-  </div>
-  <p class="hero-sub">
-    نعرض هنا أبرز ما يرد في الإعلام العبري من تقارير ومقالات تحليلية تتعلق بالشأن الفلسطيني،
-    مع متابعة دقيقة من فريق الرصد والتحليل.
+<section style="max-width: 900px; margin:auto; padding:20px;">
+
+  <h2 style="font-size: 26px; font-weight: bold; margin-bottom: 10px;">
+    المتابعة العبرية – أحدث ما نُشر
+  </h2>
+
+  <p style="color: #777; margin-bottom: 25px;">
+    هنا يتم تجميع أبرز التقارير العبرية المنشورة ضمن المتابعة اليومية.
   </p>
-</section>
 
-{% assign hebrew_posts = site.posts | where_exp: "post", "post.categories contains 'israelipress'" %}
+  {% assign hebrew_posts = site.posts | where_exp: "post", "post.categories contains 'israelipress'" %}
 
-{% if hebrew_posts.size > 0 %}
-
-<!-- قائمة التقارير -->
-<section class="grid">
   {% for post in hebrew_posts %}
-  <article class="card">
-    <div class="card-header">
-      <h2 class="card-title">
-        <a href="{{ post.url | relative_url }}">
+    <article style="background:#111827; padding:20px; border-radius:15px; margin-bottom:20px; border:1px solid #1e293b;">
+      <h3 style="font-size:20px; font-weight:600; margin-bottom:8px;">
+        <a href="{{ post.url | relative_url }}" style="color:#3b82f6; text-decoration:none;">
           {{ post.title }}
         </a>
-      </h2>
-      <span class="card-tag">
-        {{ post.date | date: "%Y-%m-%d" }}
-      </span>
-    </div>
+      </h3>
 
-    <p style="font-size:0.86rem; margin-bottom:10px;">
-      {{ post.summary | default: post.excerpt | strip_html | truncate: 160 }}
-    </p>
-
-    <a href="{{ post.url | relative_url }}" class="btn btn-ghost">
-      قراءة التقرير الكامل →
-    </a>
-  </article>
+      <p style="color:#94a3b8; font-size:14px;">
+        {{ post.excerpt }}
+      </p>
+    </article>
   {% endfor %}
+
 </section>
-
-{% else %}
-
-<section class="card">
-  <p style="font-size:0.9rem;">
-    لا توجد تقارير مصنّفة تحت الفئة <code>israelipress</code> في الوقت الحالي.
-    تأكّد أن البوستات العبرية تحتوي على السطر:
-  </p>
-  <pre><code>categories: ["israelipress"]</code></pre>
-</section>
-
-{% endif %}
