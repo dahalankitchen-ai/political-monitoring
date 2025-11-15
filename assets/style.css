@@ -1,0 +1,84 @@
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617; /* خلفية داكنة */
+  color: #e5e7eb;      /* نص فاتح */
+  direction: rtl;
+}
+
+/* الروابط */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* الناف بار */
+nav.nav {
+  background: #020617;
+  border-bottom: 1px solid #1f2937;
+  padding: 12px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+nav.nav a {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+nav.nav a:hover {
+  color: #38bdf8;
+}
+
+/* المحتوى الرئيسي */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto 40px auto;
+}
+
+/* عناوين */
+h1, h2, h3 {
+  color: #f9fafb;
+}
+
+/* خط فاصل */
+hr {
+  border: 0;
+  border-top: 1px solid #1f2937;
+  margin: 16px 0;
+}
+
+/* فقرة تلخيص */
+p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* كروت بسيطة (تقدر تستخدمها لاحقاً للصفحات الثانية) */
+.card {
+  background: #020617;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+/* الفوتر */
+footer.footer {
+  padding: 16px 20px;
+  text-align: center;
+  border-top: 1px solid #1f2937;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
