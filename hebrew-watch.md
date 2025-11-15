@@ -1,0 +1,34 @@
+---
+layout: default
+title: "المتابعة العبرية — تقارير وتحليلات"
+---
+
+<section class="max-w-6xl mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">المتابعة العبرية — أحدث ما نُشر</h2>
+  <p class="text-slate-400 mb-6">
+    هنا يتم تجميع أبرز التقارير العبرية المنشورة ضمن المتابعة اليومية.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    {% assign hebrew_posts = site.posts | where_exp: "post", "post.categories contains 'israelipress'" %}
+    {% for post in hebrew_posts %}
+    <article class="bg-slate-900 p-4 rounded-2xl border border-slate-700">
+      <h3 class="text-lg font-semibold mb-2">
+        <a href="{{ post.url | relative_url }}" class="text-blue-400 hover:underline">
+          {{ post.title }}
+        </a>
+      </h3>
+
+      <p class="text-sm text-slate-400 mb-2">{{ post.date | date: "%Y-%m-%d" }}</p>
+
+      <p class="text-slate-300 mb-3">
+        {{ post.summary | default: post.excerpt | strip_html | truncate: 150 }}
+      </p>
+
+      <a href="{{ post.url | relative_url }}" class="text-blue-500 hover:underline">
+        قراءة التقرير الكامل →
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
