@@ -14,8 +14,8 @@ permalink: /hebrew-watch/
 
 ### <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
 
-<p style="color:#777;">
-  {{ post.excerpt }}
+<p style="color:#888; font-size:0.9rem;">
+  {{ post.date | date: "%Y-%m-%d" }} — {{ post.excerpt }}
 </p>
 
 <hr>
