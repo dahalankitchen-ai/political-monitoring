@@ -20,7 +20,7 @@ permalink: /hebrew-watch/
 
 {% if hebrew_posts.size > 0 %}
 
-<!-- شبكة التقارير -->
+<!-- قائمة التقارير -->
 <section class="grid">
   {% for post in hebrew_posts %}
   <article class="card">
@@ -50,8 +50,8 @@ permalink: /hebrew-watch/
 
 <section class="card">
   <p style="font-size:0.9rem;">
-    لا توجد تقارير مصنفة تحت الفئة <code>israelipress</code> في الوقت الحالي.
-    تأكد من أن البوستات العبرية تحتوي على السطر:
+    لا توجد تقارير مصنّفة تحت الفئة <code>israelipress</code> في الوقت الحالي.
+    تأكّد أن البوستات العبرية تحتوي على السطر:
   </p>
   <pre><code>categories: ["israelipress"]</code></pre>
 </section>
