@@ -1,375 +1,231 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>مركز المتابعة السياسية | Political Monitoring</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فريق المتابعة السياسية – Political Monitoring</title>
+
   <style>
+
     :root {
-      --bg: #050810;
-      --card: #0e1422;
-      --accent: #f5b100;
-      --accent-soft: rgba(245,177,0,0.18);
-      --text-main: #f5f5f5;
-      --text-soft: #a7b0c5;
-      --border: #1c2335;
+      --bg-main: #0f1117;
+      --bg-card: #161920;
+      --accent: #4da3ff;
+      --accent-soft: #c8ddff;
+      --text-main: #e9e9e9;
+      --text-soft: #b5b5b5;
+      --radius-card: 14px;
+      --radius-pill: 50px;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+
     body {
-      background: radial-gradient(circle at top, #11172a 0, #050810 45%, #020309 100%);
+      margin: 0;
+      font-family: "Cairo", sans-serif;
+      background: var(--bg-main);
       color: var(--text-main);
-      min-height: 100vh;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 18px 14px 40px;
+      line-height: 1.8;
     }
 
-    /* NAV */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
+    header {
+      padding: 24px;
+      text-align: center;
     }
-    .logo-title {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--accent);
     }
-    .logo-main {
-      font-weight: 700;
-      letter-spacing: 0.03em;
+
+    .subtitle {
       font-size: 1.1rem;
-    }
-    .logo-sub {
-      font-size: 0.75rem;
       color: var(--text-soft);
     }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.82rem;
-    }
-    .nav-chip {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(10,15,30,0.85);
-    }
-    .nav-chip--accent {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: #fff9e6;
-      font-weight: 600;
+
+    .panel {
+      background: var(--bg-card);
+      margin: 24px auto;
+      padding: 24px;
+      border-radius: var(--radius-card);
+      width: 92%;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
     }
 
-    /* HERO */
-    .hero {
-      margin: 18px 0 26px;
-      padding: 18px 16px 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(7,12,30,0.96), rgba(14,19,40,0.96));
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset-inline-end: -80px;
-      inset-block-start: -80px;
-      width: 170px;
-      height: 170px;
-      background: radial-gradient(circle, rgba(245,177,0,0.55), transparent 65%);
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .hero-badge {
-      font-size: 0.75rem;
+    .panel-title {
+      font-size: 1.4rem;
+      font-weight: bold;
       color: var(--accent);
-      background: rgba(5, 8, 16, 0.6);
-      border-radius: 999px;
-      padding: 3px 10px;
-      border: 1px solid var(--accent-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .hero-badge span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #2ee38a;
-      box-shadow: 0 0 10px #2ee38a;
-    }
-    .hero-title {
-      font-size: 1.35rem;
-      line-height: 1.5;
       margin-bottom: 6px;
     }
-    .hero-sub {
-      font-size: 0.85rem;
+
+    .panel-subtitle {
+      font-size: 1rem;
       color: var(--text-soft);
-      max-width: 520px;
-    }
-    .hero-actions {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .btn {
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: none;
-      color: inherit;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #f5b100, #ff7b39);
-      color: #140b02;
-      font-weight: 600;
-      border: none;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-    .btn-ghost {
-      border-color: var(--border);
-      background: rgba(7, 11, 24, 0.9);
+      margin-bottom: 18px;
     }
 
     /* GRID */
-    .grid {
+    .list-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 16px;
-    }
-    @media (max-width: 800px) {
-      .nav { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .hero { padding: 16px 14px; }
-      .grid { grid-template-columns: 1fr; }
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 14px 14px 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    /* CARDS */
+    .list-item {
+      background: #1b1f27;
+      padding: 18px;
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.2s;
     }
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      gap: 6px;
-    }
-    .card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-    }
-    .card-tag {
-      font-size: 0.75rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text-soft);
-    }
-    .card-tag--accent {
+
+    .list-item:hover {
       border-color: var(--accent);
-      background: var(--accent-soft);
-      color: #fff9e6;
-    }
-    .list {
-      list-style: none;
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .list li a {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-    .list span.label {
-      color: var(--text-main);
-    }
-    .list span.meta {
-      font-size: 0.76rem;
-      color: var(--text-soft);
-      white-space: nowrap;
+      transform: translateY(-4px);
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .pill {
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(9,14,27,0.85);
-      border: 1px solid var(--border);
-      color: var(--text-soft);
+    .list-title {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
-    footer {
-      margin-top: 26px;
-      padding-top: 10px;
-      border-top: 1px solid #151a2b;
-      font-size: 0.75rem;
+    .list-meta {
       color: var(--text-soft);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: space-between;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
     }
-  </style>
+
+    .list-tags {
+      color: var(--accent-soft);
+      font-size: 0.85rem;
+    }</style>
 </head>
+
 <body>
-  <div class="wrap">
 
-    <!-- NAV -->
-    <header class="nav">
-      <div class="logo-title">
-        <div class="logo-main">فريق المتابعة السياسية</div>
-        <div class="logo-sub">GITA | Political Monitoring Lab</div>
-      </div>
-      <nav class="nav-links">
-        <a class="nav-chip nav-chip--accent" href="gita.html">سلسلة الإدارة الدولية GITA</a>
-        <a class="nav-chip" href="analyses.html">التحليلات السياسية</a>
-        <a class="nav-chip" href="files.html">الملفات الخاصة</a>
-        <a class="nav-chip" href="hebrew.html">المتابعة العبرية</a>
-        <a class="nav-chip" href="reports.html">التقارير الميدانية</a>
-      </nav>
-    </header>
+<header>
+  <h1 class="title">فريق المتابعة السياسية</h1>
+  <p class="subtitle">منصة التحليل السياسي والاستخباراتي 2025</p>
+</header>
 
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-top">
-        <div>
-          <div class="hero-badge">
-            <span class="dot"></span>
-            بث تحليلي مستمر
-          </div>
-          <h1 class="hero-title">
-            مركز رصد وتحليل للمشهد الفلسطيني والإقليمي
-          </h1>
-          <p class="hero-sub">
-            منصة تتابِع ملفات غزة والضفة والإدارة الدولية والضغط الإقليمي،
-            وتربط بين التقارير الميدانية والقراءة الإستراتيجية للنظام الدولي.
-          </p>
-          <div class="hero-actions">
-            <a href="gita.html" class="btn btn-primary">
-              🚀 ادخل سلسلة الإدارة الدولية GITA
-            </a>
-            <a href="analyses.html" class="btn btn-ghost">
-              🧠 آخر التحليلات السياسية
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ====== SERIES PANEL ====== -->
+<section class="panel" id="series">
+  <h2 class="panel-title">السلاسل التحليلية</h2>
+  <p class="panel-subtitle">ملفات تحليلية متكاملة… من أول تحذير لآخر استنتاج.</p>
 
-    <!-- MAIN GRID -->
-    <main class="grid">
+  <div class="list-grid">
 
-      <!-- LEFT -->
-      <section id="files" class="card">
-        <div class="card-header">
-          <div class="card-title">الملفات المركزية</div>
-          <span class="card-tag card-tag--accent">ملفات قيد التحديث</span>
-        </div>
-        <ul class="list">
-          <li>
-            <a href="files/postwar-gaza.html">
-              <span class="label">ملف ما بعد الحرب – غزة</span>
-              <span class="meta">السيناريوهات والخيارات</span>
-            </a>
-          </li>
-          <li>
-            <a href="gita.html">
-              <span class="label">سلسلة الإدارة الدولية – GITA Files</span>
-              <span class="meta">من الجزء 24 وما بعده</span>
-            </a>
-          </li>
-          <li>
-            <a href="files.html">
-              <span class="label">ملف التحركات الإقليمية</span>
-              <span class="meta">مصر – قطر – تركيا – الخليج</span>
-            </a>
-          </li>
-          <li>
-            <a href="israeli-analyses.html">
-              <span class="label">تحليلات إسرائيلية معمقة</span>
-              <span class="meta">قراءة داخل الذهن الإسرائيلي</span>
-            </a>
-          </li>
-        </ul>
+    <!-- Reality Check -->
+    <article class="list-item">
+      <h3 class="list-title">Reality Check — 03 | “المنطقة الخضراء في غزة… من بغداد إلى رفح”</h3>
+      <p class="list-meta">
+        تحليل وربط بين النموذج الأمريكي في العراق ومحاولة استنساخه على حدود غزة – سيناء.  
+        مع قراءة خاصة لدور القاهرة.
+      </p>
+      <p class="list-tags">#Reality_Check #غزة #سيناء #المنطقة_الخضراء</p>
+    </article>
 
-        <div class="pill-row">
-          <span class="pill">#غزة</span>
-          <span class="pill">#الضفة_الغربية</span>
-          <span class="pill">#الإدارة_الدولية</span>
-          <span class="pill">#الإقليم</span>
-        </div>
-      </section>
+    <!-- ISR Intel -->
+    <article class="list-item">
+      <h3 class="list-title">ISR Intel — 01 | صورة قائد وعيون مرافقة خلفه</h3>
+      <p class="list-meta">
+        تفكيك صورة من الجيش الإسرائيلي: لغة جسد القيادة، توزيع الجنود،  
+        وماذا تقول اللقطة عن الإنهاك وطول أمد المعركة.
+      </p>
+      <p class="list-tags">#ISR_Intel #تحليل_عسكري #الجيش_الإسرائيلي</p>
+    </article>
 
-      <!-- RIGHT -->
-      <section id="hebrew-section" class="card">
-        <div class="card-header">
-          <div class="card-title">متابعة الصحافة العبرية والتقارير</div>
-          <span class="card-tag">تغذية استخباراتية مفتوحة المصدر</span>
-        </div>
-        <ul class="list">
-          <li>
-            <a href="hebrew-watch.html">
-              <span class="label">متابعة الصحافة العبرية اليومية</span>
-              <span class="meta">ترشيح وتحليل أهم ما ينشر</span>
-            </a>
-          </li>
-          <li>
-            <a href="hebrew.html">
-              <span class="label">ملف الخطاب الإسرائيلي</span>
-              <span class="meta">سياسة – أمن – مجتمع</span>
-            </a>
-          </li>
-          <li>
-            <a href="reports.html">
-              <span class="label">التقارير الميدانية والتحقق من الوقائع</span>
-              <span class="meta">حالات موثقة من غزة والضفة</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+    <!-- GZN ReMap -->
+    <article class="list-item">
+      <h3 class="list-title">GZN ReMap — 09 | أول 24 ساعة بعد سقوط الإدارة الدولية</h3>
+      <p class="list-meta">
+        سيناريو مفصل لكيفية انسحاب الفرق الدولية، تحرك إسرائيل،  
+        دخول مصر وقطر وتركيا، وعودة حماس كلاعب ميداني.
+      </p>
+      <p class="list-tags">#GZN_ReMap #غزة #السياسة_الدولية</p>
+    </article>
 
-    </main>
+    <!-- Conscious Intel -->
+    <article class="list-item">
+      <h3 class="list-title">Conscious Intel — 07 | قراءة مشهد بلا انحياز</h3>
+      <p class="list-meta">
+        دون تحيّز أو صدام… قراءة كاملة للمشهد بتحليل هادئ واستراتيجي.
+      </p>
+      <p class="list-tags">#Conscious_Intel #تحليل_استراتيجي</
+        <!-- ====== LATEST UPDATES ====== -->
+<section class="panel" id="latest">
+  <h2 class="panel-title">آخر التحليلات</h2>
+  <p class="panel-subtitle">تحديثات يومية… من قلب المشهد السياسي الميداني.</p>
 
-    <footer>
-      <span>© مركز المتابعة السياسية – GITA Files</span>
-      <span>منصة تجريبية للتكامل بين التحليل السياسي والذكاء الاصطناعي.</span>
-    </footer>
+  <div class="list-grid">
+
+    <!-- تحديث حديث -->
+    <article class="list-item">
+      <h3 class="list-title">قرار مجلس الأمن | صياغة أمريكية بامتناع روسيا والصين</h3>
+      <p class="list-meta">
+        تمرير أمريكي ناعم… ضوء أخضر دولي مشروط…  
+        ورسالة خفية حول مستقبل غزة بعد العمليات.
+      </p>
+      <p class="list-tags">#دبلوماسية #الأمم_المتحدة #غزة</p>
+    </article>
+
+    <!-- تحديث إضافي -->
+    <article class="list-item">
+      <h3 class="list-title">تحركات إسرائيلية استباقية قبل التصويت الدولي</h3>
+      <p class="list-meta">
+        ضغط إعلامي – تسريب سياسي – وحشد رسائل خوف على الأمن القومي.
+      </p>
+      <p class="list-tags">#إسرائيل #سياسة_دولية</p>
+    </article>
 
   </div>
+</section>
+
+
+<!-- ====== ABOUT SECTION ====== -->
+<section class="panel" id="about" style="margin-top: 20px;">
+  <h2 class="panel-title">عن المنصة</h2>
+  <p class="panel-subtitle">
+    منصة تحليل سياسي واستخباراتي… تعتمد على ربط المعلومات والقراءة متعددة الأبعاد.
+  </p>
+
+  <div class="panel-content">
+    <p>
+      فريق المتابعة السياسية هو مشروع مستقلّ يقدم تحليلات معمقة،  
+      يعتمد على متابعة يومية للصحافة العالمية – العبرية – العربية،  
+      ويرتكز على منهجية الربط بين الحدث والسياق والتاريخ الأمني.
+    </p>
+
+    <p>
+      يضم المشروع سلاسل تحليلية مثل ISR Intel، Conscious Intel، Reality Check،  
+      وGZN ReMap… بهدف رفع الوعي وتقديم صورة أوضح للمشهد دون تحيز.
+    </p>
+  </div>
+</section>
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <p class="footer-title">
+      فريق المتابعة السياسية — Political Monitoring Team
+    </p>
+
+    <p class="footer-note">
+      منصة التحليل السياسي والاستخباراتي — 2025  
+      تحديث يومي للسلاسل التحليلية والملفات العميقة.
+    </p>
+
+    <p class="footer-credits">
+      © جميع الحقوق محفوظة — موقع فريق المتابعة السياسية  
+      <strong>نعيم محمد دحلان</strong>
+    </p>
+
+  </div>
+</footer>
+
 </body>
-  </html>
+    </html>
